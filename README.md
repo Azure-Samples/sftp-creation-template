@@ -7,8 +7,10 @@ SFTP is a very widely used protocol which many organizations use today for trans
 * Simple SFTP Creation
 * Persistent and Durable Storage
 * Cost efficient solution
+* No VM maintenance overhead
+* Fast to deploy
 
-# How-To create an on-demand SFTP Server with persistent storage
+# How-To create an on-demand SFTP Server with a new Azure Files persistent storage
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fsftp-creation-template%2Fmaster%2Fcreate-aci-sftp-server-and-azure-files%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
@@ -17,6 +19,16 @@ SFTP is a very widely used protocol which many organizations use today for trans
     <img src="http://armviz.io/visualizebutton.png"/>
 </a>
 
+# How-To create an on-demand SFTP Server with an existing Azure Files persistent storage
+
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fsftp-creation-template%2Fmaster%2Fcreate-aci-sftp-server-with-existing-azure-file-share%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
+<a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fsftp-creation-template%2Fmaster%2Fcreate-aci-sftp-server-with-existing-azure-file-share%2Fazuredeploy.json" target="_blank">
+    <img src="http://armviz.io/visualizebutton.png"/>
+</a>
+
+# Overview
 This template demonstrates an on-demand SFTP server using an Azure Container Instance (ACI). It creates a Storage Account and a File Share via the Azure CLI using another ACI (based on the 101-aci-storage-file-share template also in this repository). This File Share is then mounted into the main ACI to provide persistent storage after the container is terminated.
 
 `Tags: Azure Container Instance, az-cli, sftp`
