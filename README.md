@@ -1,5 +1,6 @@
 ---
-languages: []
+languages:
+- json
 products:
 - azure
 topic: sample
