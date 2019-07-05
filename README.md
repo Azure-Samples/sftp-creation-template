@@ -4,6 +4,7 @@ languages:
 products:
 - azure
 topic: sample
+description: "SFTP is a widely used protocol which many organizations use for transferring files."
 ---
 
 # SFTP on Azure
