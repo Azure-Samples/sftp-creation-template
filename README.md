@@ -3,7 +3,7 @@ languages:
 - json
 products:
 - azure
-topic: sample
+page_type: sample
 description: "SFTP is a widely used protocol which many organizations use for transferring files."
 ---
 
