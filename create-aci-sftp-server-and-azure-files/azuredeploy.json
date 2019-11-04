@@ -164,6 +164,7 @@
                 "osType": "Linux",
                 "ipAddress": {
                     "type": "Public",
+                    "dnsNameLabel": "sftp",
                     "ports": [
                         {
                             "protocol": "TCP",
