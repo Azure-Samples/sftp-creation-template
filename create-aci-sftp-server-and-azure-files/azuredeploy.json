@@ -42,7 +42,7 @@
         "dnsNameLabel": {
             "type": "string",
             "metadata": {
-                "description": "Password to use for SFTP access"
+                "description": "DNS Label used to set FQDN"
             }
         }
     },
