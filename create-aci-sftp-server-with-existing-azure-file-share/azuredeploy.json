@@ -39,6 +39,12 @@
                 "description": "Primary location for resources"
             }
         }
+         },
+        "dnsNameLabel": {
+            "type": "string",
+            "metadata": {
+                "description": "DNS Label used to set FQDN"
+            }
     },
     "variables": {
         "sftpContainerName": "sftp",
@@ -102,6 +108,7 @@
                 "osType": "Linux",
                 "ipAddress": {
                     "type": "Public",
+                    "dnsNameLabel": "[parameters('dnsNameLabel')]",
                     "ports": [
                         {
                             "protocol": "TCP",
