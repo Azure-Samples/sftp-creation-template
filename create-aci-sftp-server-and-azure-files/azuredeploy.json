@@ -38,6 +38,12 @@
             "metadata": {
                 "description": "Primary location for resources"
             }
+         },
+        "dnsNameLabel": {
+            "type": "string",
+            "metadata": {
+                "description": "Password to use for SFTP access"
+            }
         }
     },
     "variables": {
@@ -164,7 +170,7 @@
                 "osType": "Linux",
                 "ipAddress": {
                     "type": "Public",
-                    "dnsNameLabel": "sftp",
+                    "dnsNameLabel": "[parameters('dnsNameLabel')]",
                     "ports": [
                         {
                             "protocol": "TCP",
