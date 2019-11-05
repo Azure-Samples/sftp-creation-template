@@ -16,9 +16,6 @@
     },
     "existingFileShareName": {
       "value": "GET-PREREQ-existingFileShareName"
-    },
-    "dnsNameLabel": {
-      "value": "null"
     }
   }
 }
