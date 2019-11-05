@@ -44,6 +44,7 @@
             "metadata": {
                 "description": "DNS Label used to set FQDN"
             }
+        }
     },
     "variables": {
         "sftpContainerName": "sftp",
