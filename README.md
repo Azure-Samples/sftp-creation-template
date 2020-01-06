@@ -87,7 +87,7 @@ Click on the container sftp-group
 
 Copy the FQDN from the container group
 
-![cid:image014.png\@01D4AC19.C75D08F0](media/fqdn_image.png)
+![cid:image014.png\@01D4AC19.C75D08F0](media/fqdn_image.PNG)
 
 Open Filezilla and open File Site Manager and enter the IP, username and
 password that was originally added during creation
