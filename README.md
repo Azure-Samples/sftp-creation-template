@@ -79,33 +79,33 @@ Pin to the dashboard
 
 ## Usage
 
-Once deployed, connect to the fully qualified domain name (FQDN) of the ACI container group named **sftp-group** and upload files. 
+Once deployed, connect Azure to the Filezilla client via the fully qualified domain name (FQDN) of the ACI container group named **sftp-group** and upload files. 
 
 :bangbang: ACI _does not_ support static IPs for their container groups. Use the container group's FQDN for consistent network connectivity :bangbang: 
 
 After connecting to **sftp-group**'s FQDN, these files should be placed into the Azure File Share. Once transfers are complete, stop the **sftp-group** and the files will remain accessible. You can delete/recreate  **sftp-group** and mount the same Azure File Share to copy more files.
 
-Click on the container sftp-group
+1. Click on the container sftp-group
 
 ![cid:image013.png\@01D4AC19.C75D08F0](media/27eb882cc865681917477f753c7361aa.png)
 
-Copy the FQDN from the container group
+2. Copy the FQDN from the container group
 
 ![cid:image014.png\@01D4AC19.C75D08F0](media/fqdn_image.PNG)
 
-Open Filezilla and open File Site Manager and enter the FQDN, username and
+3. Open Filezilla and open File Site Manager and enter the FQDN, username and
 password that was originally added during creation
 
 ![cid:image015.png\@01D4AC19.C75D08F0](media/0f9a21b676c64a6de53bff3a317977f9.png)
 
 
-Upload a file
+4. Upload a file
 
 ![cid:image016.png\@01D4AC19.C75D08F0](media/07d51c6830a6975b0fe1869f08378c35.png)
 
 >    
 
-1.  The file appears in your file share
+5. The file appears in your file share
 
     ![cid:image017.jpg\@01D4AC19.C75D08F0](media/45f6559a0fdcd3f6e300153d13eb3fde.jpg)
 
