@@ -83,7 +83,7 @@ Once deployed, connect Azure to the Filezilla client via the fully qualified dom
 
 :bangbang: ACI _does not_ support static IPs for their container groups. Use the container group's FQDN for consistent network connectivity :bangbang: 
 
-After connecting to **sftp-group**'s FQDN, these files should be placed into the Azure File Share. Once transfers are complete, stop the **sftp-group** and the files will remain accessible. You can delete/recreate  **sftp-group** and mount the same Azure File Share to copy more files.
+After connecting to **sftp-group**'s FQDN, these files should be placed into the Azure File Share. Once transfers are complete, [manually stop](https://docs.microsoft.com/bs-latn-ba/azure/container-instances/container-instances-stop-start#stop) the **sftp-group** to pause ACI's billing. The files will remain accessible. You can [manually start](https://docs.microsoft.com/bs-latn-ba/azure/container-instances/container-instances-stop-start#start)  **sftp-group** and to copy more files at anytime. If you choose to delete and redeploy **sftp-group** make sure to update the FQDN connection on Filezilla since this template randomly generates the FQDN during deployment time. 
 
 1. Click on the container sftp-group
 
