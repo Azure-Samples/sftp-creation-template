@@ -38,6 +38,12 @@
             "metadata": {
                 "description": "Primary location for resources"
             }
+        },
+        "containerGroupDomainName": {
+            "type": "string",
+            "metadata" : {
+                "description": "Domain name for container group"
+            }
         }
     },
     "variables": {
@@ -169,7 +175,8 @@
                             "protocol": "TCP",
                             "port": 22
                         }
-                    ]
+                    ],
+                    "dnsNameLabel": "[variables('containerGroupDomainName')]"
                 },
                 "restartPolicy": "OnFailure",
                 "volumes": [
