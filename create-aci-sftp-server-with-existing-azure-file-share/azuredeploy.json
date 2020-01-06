@@ -38,6 +38,13 @@
             "metadata": {
                 "description": "Primary location for resources"
             }
+        },
+        "containerGroupDNSLabel": {
+            "type": "string",
+            "defaultValue": "[uniqueString(resourceGroup().id, deployment().name)]",
+            "metadata" : {
+                "description": "DNS label for container group"
+            }
         }
     },
     "variables": {
@@ -107,7 +114,8 @@
                             "protocol": "TCP",
                             "port": 22
                         }
-                    ]
+                    ],
+                    "dnsNameLabel": "[parameters('containerGroupDNSLabel')]"
                 },
                 "restartPolicy": "OnFailure",
                 "volumes": [
