@@ -79,7 +79,11 @@ Pin to the dashboard
 
 ## Usage
 
-Once deployed, connect to the fully qualified domain name (FQDN) of the ACI container group named **sftp-group** and upload files. ACI _does not_ support static IPs for their container groups so FQDNs should be used for consistent network connectivity. After connecting to **sftp-group**'s FQDN, these files should be placed into the Azure File Share. Once transfers are complete, stop the **sftp-group** and the files will remain accessible. You can delete/recreate  **sftp-group** and mount the same Azure File Share to copy more files.
+Once deployed, connect to the fully qualified domain name (FQDN) of the ACI container group named **sftp-group** and upload files. 
+
+:bangbang: ACI _does not_ support static IPs for their container groups. Use the container group's FQDN for consistent network connectivity :bangbang: 
+
+After connecting to **sftp-group**'s FQDN, these files should be placed into the Azure File Share. Once transfers are complete, stop the **sftp-group** and the files will remain accessible. You can delete/recreate  **sftp-group** and mount the same Azure File Share to copy more files.
 
 Click on the container sftp-group
 
