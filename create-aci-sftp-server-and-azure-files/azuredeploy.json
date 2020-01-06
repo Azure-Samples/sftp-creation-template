@@ -177,7 +177,7 @@
                             "port": 22
                         }
                     ],
-                    "dnsNameLabel": "[variables('containerGroupDNSLabel')]"
+                    "dnsNameLabel": "[parameters('containerGroupDNSLabel')]"
                 },
                 "restartPolicy": "OnFailure",
                 "volumes": [
