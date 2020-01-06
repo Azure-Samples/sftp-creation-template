@@ -103,7 +103,6 @@ password that was originally added during creation
 
 ![cid:image016.png\@01D4AC19.C75D08F0](media/07d51c6830a6975b0fe1869f08378c35.png)
 
->    
 
 5. The file appears in your file share
 
