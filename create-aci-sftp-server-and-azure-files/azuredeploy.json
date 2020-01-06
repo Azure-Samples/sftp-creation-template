@@ -39,10 +39,11 @@
                 "description": "Primary location for resources"
             }
         },
-        "containerGroupDomainName": {
+        "containerGroupDNSLabel": {
             "type": "string",
+            "defaultValue": "[uniqueString(resourceGroup().id, deployment().name)]",
             "metadata" : {
-                "description": "Domain name for container group"
+                "description": "DNS label for container group"
             }
         }
     },
@@ -176,7 +177,7 @@
                             "port": 22
                         }
                     ],
-                    "dnsNameLabel": "[variables('containerGroupDomainName')]"
+                    "dnsNameLabel": "[variables('containerGroupDNSLabel')]"
                 },
                 "restartPolicy": "OnFailure",
                 "volumes": [

@@ -7,9 +7,6 @@
     },
     "sftpPassword": {
       "value": "GEN-PASSWORD"
-    },
-    "containerGroupDomainName": {
-      "value": "GEN-UNIQUE-6"
     }
   }
 }
