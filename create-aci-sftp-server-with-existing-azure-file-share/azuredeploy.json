@@ -136,7 +136,6 @@
         "containerDNSLabel": {
             "type": "string",
             "value": "[concat(parameters('containerGroupDNSLabel'), '.', parameters('location'), '.azurecontainer.io')]"
-            "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups/', variables('sftpContainerGroupName'))).ipAddress.ip]"
         }
     }
 }
