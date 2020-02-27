@@ -38,6 +38,13 @@
             "metadata": {
                 "description": "Primary location for resources"
             }
+        },
+        "containerGroupDNSLabel": {
+            "type": "string",
+            "defaultValue": "[uniqueString(resourceGroup().id, deployment().name)]",
+            "metadata" : {
+                "description": "DNS label for container group"
+            }
         }
     },
     "variables": {
@@ -169,7 +176,8 @@
                             "protocol": "TCP",
                             "port": 22
                         }
-                    ]
+                    ],
+                    "dnsNameLabel": "[parameters('containerGroupDNSLabel')]"
                 },
                 "restartPolicy": "OnFailure",
                 "volumes": [
@@ -187,9 +195,9 @@
         }
     ],
     "outputs": {
-        "containerIPv4Address": {
+        "containerDNSLabel": {
             "type": "string",
-            "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups/', variables('sftpContainerGroupName'))).ipAddress.ip]"
+            "value": "[concat(parameters('containerGroupDNSLabel'), '.', parameters('location'), '.azurecontainer.io')]"
         }
     }
 }

@@ -9,7 +9,7 @@ description: "SFTP is a widely used protocol which many organizations use for tr
 
 # SFTP on Azure
 
-SFTP is a very widely used protocol which many organizations use today for transferring files within their organization or across organizations. Creating a VM based SFTP is costly and high-maintenance. In absence of a fully managed service, this template will be a good workaround for a cost-effective SFTP solution in Azure which is backed by durable persistent storage. ACI service is very inexpensive and requires very little maintenance, while data is stored in Azure Files which is a fully managed SMB service in cloud. 
+SFTP is a very widely used protocol which many organizations use today for transferring files within their organization or across organizations. Creating a VM based SFTP is costly and high-maintenance. In absence of a fully managed service, this template will be a good workaround for a cost-effective SFTP solution in Azure which is backed by durable persistent storage. ACI service is very inexpensive and requires very little maintenance, while data is stored in Azure Files which is a fully managed SMB service in cloud.
 
 ## Key Value Prop
 
@@ -38,7 +38,9 @@ SFTP is a very widely used protocol which many organizations use today for trans
 </a>
 
 ## Overview
-This template demonstrates an on-demand SFTP server using an Azure Container Instance (ACI). It creates a Storage Account and a File Share via the Azure CLI using another ACI (based on the 101-aci-storage-file-share template also in this repository). This File Share is then mounted into the main ACI to provide persistent storage after the container is terminated.
+This template demonstrates an on-demand SFTP server using Azure Container Instances ([ACI](https://docs.microsoft.com/en-us/azure/container-instances/)). The template will generate two container groups: 
+1. **create-share-group** is a container group that acts as an [init container](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) by generating the second container group and an [Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview) account (based on the [101-aci-storage-file-share template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-storage-file-share)) 
+2. **sftp-group** is a container group with a mounted [Azure File Share](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-create-file-share). The Azure File Share will provide persistent storage after the container is terminated.
 
 `Tags: Azure Container Instance, az-cli, sftp`
 
@@ -77,33 +79,36 @@ Pin to the dashboard
 
 ## Usage
 
-Once deployed, connect to the public IP of the SFTP ACI and upload files; these files should be placed into the File Share. Once transfers are complete, stop the ACI and the files will remain accessible. You can delete/recreate the ACI and mount the same file share to copy more files.
+Once deployed, connect Azure to the Filezilla client via the fully qualified domain name (FQDN) of the ACI container group named **sftp-group** and upload files. 
 
-Click on the container sftp-group
+:bangbang: ACI _does not_ support static IPs for their container groups. Use the container group's FQDN for consistent network connectivity :bangbang: 
+
+After connecting to **sftp-group**'s FQDN, these files should be placed into the Azure File Share. Once transfers are complete, [manually stop](https://docs.microsoft.com/bs-latn-ba/azure/container-instances/container-instances-stop-start#stop) the **sftp-group** to pause ACI's billing. The files will remain accessible. You can [manually start](https://docs.microsoft.com/bs-latn-ba/azure/container-instances/container-instances-stop-start#start)  **sftp-group** and to copy more files at anytime. If you choose to delete and redeploy **sftp-group** make sure to update the FQDN connection on Filezilla since this template randomly generates the FQDN during deployment time. 
+
+1. Click on the container sftp-group
 
 ![cid:image013.png\@01D4AC19.C75D08F0](media/27eb882cc865681917477f753c7361aa.png)
 
-Copy the IP address from the container group
+2. Copy the FQDN from the container group
 
-![cid:image014.png\@01D4AC19.C75D08F0](media/490ad362e0903ed66eefeb06fc9b0264.png)
+![cid:image014.png\@01D4AC19.C75D08F0](media/fqdn_image.PNG)
 
-Open Filezilla and open File Site Manager and enter the IP, username and
+3. Open Filezilla and open File Site Manager and enter the FQDN, username and
 password that was originally added during creation
 
 ![cid:image015.png\@01D4AC19.C75D08F0](media/0f9a21b676c64a6de53bff3a317977f9.png)
 
 
-Upload a file
+4. Upload a file
 
 ![cid:image016.png\@01D4AC19.C75D08F0](media/07d51c6830a6975b0fe1869f08378c35.png)
 
->    
 
-1.  The file appears in your file share
+5. The file appears in your file share
 
     ![cid:image017.jpg\@01D4AC19.C75D08F0](media/45f6559a0fdcd3f6e300153d13eb3fde.jpg)
 
 ### Notes
 
-Azure Container Instance is available in selected [locations](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-quotas#region-availability). Please use one of the available location for Azure Container Instance resource.
+Azure Container Instances is available in selected [locations](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-quotas#region-availability). Please use one of the available location for Azure Container Instances resource.
 The container image used by this template is hosted on [Docker Hub](https://hub.docker.com/r/atmoz/sftp). It is not affiliated with Microsoft in any way, and usage is at your own risk.
