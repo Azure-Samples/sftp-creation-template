@@ -108,6 +108,27 @@ password that was originally added during creation
 
     ![cid:image017.jpg\@01D4AC19.C75D08F0](media/45f6559a0fdcd3f6e300153d13eb3fde.jpg)
 
+## Troubleshoot - Lost passowrd
+### Method to Change Password 
+
+Selected the resource group and go to the SFTP server.
+
+![](media/5d2a2df55bf668ee230fb5c476ad3f24.jpg)
+
+Click on the “ Export Template” icon. 
+
+![](media/d8b4024b9e49773c68179f66aa68cc4d.png) 
+
+![](media/1c31dea1bf52d13cd5d80429d0836035.png) 
+
+![](media/013a33dfc3d3fd34168360ebce9cfb30.png) 
+
+Under “ EnvironmentVariables” changes could be made to the username and
+password.
+![](media/0ad7c418d19ece427e8abb8762c25889.png)
+
+Once changes are done redeploy it again. 
+
 ### Notes
 
 Azure Container Instances is available in selected [locations](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-quotas#region-availability). Please use one of the available location for Azure Container Instances resource.
