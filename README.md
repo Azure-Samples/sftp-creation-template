@@ -56,7 +56,7 @@ Fill in the information
 
 3.  It will automatically create a storage account of specified **Redundancy**
 
-4.  Give a **File Share Name**
+4.  Give a **File Share Name** {Case Sensitive : Dont use uppercase letters}
 
 5.  Provide a **SFTP user name**
 
@@ -68,13 +68,13 @@ Fill in the information
 
 ![](media/f851279263a95b834f590158154fa7db.png)
 
->   cid:image011.png\@01D4AC19.C75D08F0
+
 
 Pin to the dashboard
 
 ![](media/b78de12062ed4a83bbe8fc3a1e916dc9.png)
 
->   cid:image012.png\@01D4AC19.C75D08F0
+
 
 
 ## Usage
