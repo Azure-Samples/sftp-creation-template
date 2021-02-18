@@ -156,3 +156,7 @@ Once changes are done redeploy it again. 
 
 Azure Container Instances is available in selected [locations](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-quotas#region-availability). Please use one of the available location for Azure Container Instances resource.
 The container image used by this template is hosted on [Docker Hub](https://hub.docker.com/r/atmoz/sftp). It is not affiliated with Microsoft in any way, and usage is at your own risk.
+
+### Support
+
+This is a sample provided for customer guidance on an end-to-end deployment. This template is open source and contributions are welcome. While there is full support available for Azure Container Instances and Azure Files, this template does not come under the Azure Support's scope.
