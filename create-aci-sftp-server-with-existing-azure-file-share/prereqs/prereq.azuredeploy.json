@@ -7,7 +7,7 @@
     "storageAccountName": "[concat(uniqueString(resourceGroup().id),'storage')]",
     "cliContainerName": "create-share",
     "cliContainerGroupName": "create-share-group",
-    "cliContainerImage": "microsoft/azure-cli:latest",
+    "cliContainerImage": "mcr.microsoft.com/azure-cli",
     "fileShareName": "sftpshare"
   },
   "resources": [

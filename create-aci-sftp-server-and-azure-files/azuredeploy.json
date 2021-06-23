@@ -50,7 +50,7 @@
     "variables": {
         "cliContainerName": "create-share",
         "cliContainerGroupName": "create-share-group",
-        "cliContainerImage": "microsoft/azure-cli:latest",
+        "cliContainerImage": "mcr.microsoft.com/azure-cli",
         "sftpContainerName": "sftp",
         "sftpContainerGroupName": "sftp-group",
         "sftpContainerImage": "atmoz/sftp:latest",
