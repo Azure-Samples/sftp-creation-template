@@ -37,14 +37,19 @@ SFTP is a very widely used protocol which many organizations use today for trans
     <img src="http://armviz.io/visualizebutton.png"/>
 </a>
 
+
 ## Overview
-This template demonstrates an on-demand SFTP server using Azure Container Instances ([ACI](https://docs.microsoft.com/en-us/azure/container-instances/)). The template will generate two container groups: 
-1. **create-share-group** is a container group that acts as an [init container](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) by generating the second container group and an [Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview) account (based on the [101-aci-storage-file-share template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-storage-file-share)) 
+This template demonstrates an on-demand SFTP server using Azure Container Instances ([ACI](https://docs.microsoft.com/en-us/azure/container-instances/)). The template generates two resources:
+1. **storage account** is the storage account used for persisting data, and contains the Azure Files share
 2. **sftp-group** is a container group with a mounted [Azure File Share](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-create-file-share). The Azure File Share will provide persistent storage after the container is terminated.
+
+The previous version of the templates, which are stored as azuredeploy_cli_container.json files, also create the following resources: 
+1. **create-share-group** is a container group that acts as an [init container](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) by generating the second container group and an [Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview) account (based on the [101-aci-storage-file-share template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-storage-file-share)) 
+
 
 `Tags: Azure Container Instance, az-cli, sftp`
 
-### Deployment steps
+### Deployment steps - Portal
 
 Click the "Deploy to Azure" button at the beginning of this document or follow the instructions for command line deployment using the scripts in the root of this repository.
 
@@ -75,6 +80,22 @@ Pin to the dashboard
 ![](media/b78de12062ed4a83bbe8fc3a1e916dc9.png)
 
 >   cid:image012.png\@01D4AC19.C75D08F0
+
+### Deployment steps - Command Line
+
+The deployment steps for the Azure CLI are as follows:
+
+1. Create a resource group
+```bash
+az group create --name sftp-rg --location uksouth
+```
+
+2. Navigate to the directory and create a deployment
+```bash
+az deployment group create --resource-group sftp-rg --template-file azuredeploy.bicep
+```
+
+3. Check the outputs to get the container DNS label
 
 
 ## Usage
@@ -107,6 +128,7 @@ password that was originally added during creation
 5. The file appears in your file share
 
     ![cid:image017.jpg\@01D4AC19.C75D08F0](media/45f6559a0fdcd3f6e300153d13eb3fde.jpg)
+
 
 ### Troubleshoot - Lost Password
 
