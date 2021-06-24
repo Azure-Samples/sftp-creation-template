@@ -29,7 +29,7 @@ var sftpContainerName = 'sftp'
 var sftpContainerGroupName = 'sftp-group'
 var sftpContainerImage = 'atmoz/sftp:debian'
 var sftpEnvVariable = '${sftpUser}:${sftpPassword}:1001'
-var storageAccountName = '${storageAccountPrefix}${uniqueString(resourceGroup().id)}'
+var storageAccountName = take(toLower('${storageAccountPrefix}${uniqueString(resourceGroup().id)}'), 24) //storage account must be =< 24 characters
 
 resource stgacct 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: storageAccountName
