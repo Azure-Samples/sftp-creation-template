@@ -9,7 +9,7 @@ description: "SFTP is a widely used protocol which many organizations use for tr
 
 # SFTP on Azure
 
-SFTP is a very widely used protocol which many organizations use today for transferring files within their organization or across organizations. Creating a VM based SFTP is costly and high-maintenance. In absence of a fully managed service, this template will be a good workaround for a cost-effective SFTP solution in Azure which is backed by durable persistent storage. ACI service is very inexpensive and requires very little maintenance, while data is stored in Azure Files which is a fully managed SMB service in cloud.
+SFTP is a very widely used protocol which many organizations use today for transferring files within their organization or across organizations. Creating a VM based SFTP is costly and high-maintenance. ACI service is very inexpensive and requires very little maintenance, while data is stored in Azure Files which is a fully managed SMB service in cloud.
 
 ‼️ Azure now offers a fully-managed SFTP service built on top of Blob Storage that may be more suitable for your use case; have a look at the documentation here to see if it meets your requirements: https://docs.microsoft.com/en-us/azure/storage/blobs/secure-file-transfer-protocol-support ‼️
 
